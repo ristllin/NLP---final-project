@@ -116,7 +116,7 @@ def infinite(duration):
             flag = False
             print("iter finished after:",int(time.time() - itr_started),"seconds")
             print("\n-------------")
-        elif elapsed % INTERVAL == 1:
+        elif elapsed % INTERVAL != 0:
             flag = True
         if elapsed % 2 == 0 and printed == False:
             elapsed = int(time.time() - start)
