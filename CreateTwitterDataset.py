@@ -5,11 +5,12 @@ from twitterscraper import query_tweets
 import datetime as dt
 import re
 import emoji
+import time
 
 class DataSetCreator:
     def __init__(self,DEBUG = False):
         self.DEBUG = DEBUG
-        self.data_set = [] #{tweet1<String>:(emoji1,emoji2...emojiN)...}
+        self.data_set = {} #{tweet1<String>:(emoji1,emoji2...emojiN)...}
         self.raw_data = [] #[("tweettext",emoji),...]
 
     def scrape_twitter(self,hashtags,date = dt.date(2006, 3, 21)):
@@ -18,7 +19,7 @@ class DataSetCreator:
         :param hashtags:
         :return:
         """
-        if self.DEBUG: print("scrape_twitter() Unsupported")
+        if self.DEBUG: print("scrape_twitter() Called")
         for hashtag in hashtags:
             print("Downloading",hashtag[1]," tweets about",hashtag[0])
             list_of_tweets = query_tweets(hashtag[0], limit = int(hashtag[1]),begindate=date)
@@ -26,19 +27,19 @@ class DataSetCreator:
                 for tweet in list_of_tweets:
                     emojies = DataSetCreator.extractEmojies(tweet)
                     file.write(tweet.text)
-                    self.raw_data.append((tweet,emojies)) #save to raw
+                    self.raw_data.append((tweet.text,emojies)) #save to raw
 
-    def load_tweets(self,hashtags):
+    def load_tweets(self,PATH):
         """
         load tweets from file
         :param hashtags: list of hashtags, loads files with corresponding file names e.g. "blabla" as hashtag will try to open file "blabla.txt"
         :return:
         """
         #instead of scrape twitter (if already downloaded)
-        self.raw_data = []
-        for hashtag in hashtags:
-            with open(hashtag[0] + ".txt", "r") as file:  # save to temp folder
-                self.raw_data += file.readlines() #save to raw
+
+        with open(PATH + ".txt", "r") as file:  # save to temp folder
+            raw_json = file.read()
+            self.data_set = json.loads(raw_json)
 
     def preprocDataSet(self):
         """
@@ -48,7 +49,9 @@ class DataSetCreator:
         if self.DEBUG: print("preprocDataSet() Unsupported")
         for tweet in self.raw_data:
             if tweet[1] != "":
-                self.data_set.append({tweet[0],[emoji for emoji in tweet[1]]})
+                self.data_set[tweet[0]] = [emoji for emoji in tweet[1]]
+            elif self.DEBUG:
+                print("dropping:",tweet[0])
 
     def export(self,PATH):
         """
@@ -75,13 +78,50 @@ def loadHashTags(PATH):
             hashtags.append((row[0],row[1]))
     return hashtags #[(hashtag1,quantity),...,(hashtag2,quantity)]
 
-def main():
+def example():
+    #create a tweets downloader
+    #download preproc and export
     hashtags = loadHashTags("hashtags_test.csv")
-    print("Loaded ",len(hashtags),"hashtags.")
-    my_creator = DataSetCreator(DEBUG = True)
-    my_creator.scrape_twitter(hashtags) #scrapes hashtags into raw data
+    print("Loaded ", len(hashtags), "hashtags.")
+    my_creator = DataSetCreator(DEBUG=True)
+    my_creator.scrape_twitter(hashtags)  # scrapes hashtags into raw data
     my_creator.preprocDataSet()
-    my_creator.export("MyDataSet.csv")
+    my_creator.export("./results")
+
+def scrape(begindate):
+    # create a tweets downloader
+    # download preproc and export
+    hashtags = loadHashTags("hashtags.csv")
+    print("Loaded ", len(hashtags), "hashtags.")
+    my_creator = DataSetCreator(DEBUG=True)
+    my_creator.load_tweets("./results")
+    my_creator.scrape_twitter(hashtags,date=begindate)  # scrapes hashtags into raw data
+    my_creator.preprocDataSet()
+    my_creator.export("./results")
+
+def infinite(duration):
+    INTERVAL = 300 #3660 = 1:01 hours  #<<<<>>>>> DEBUG
+    duration = duration * 24 * 60 * 60 #in seconds
+    time_left = duration
+    start = time.time()
+    flag = True
+    while time_left > 0:
+        elapsed = int(time.time() - start)
+        time_left = duration - elapsed
+        if elapsed % INTERVAL == 0 and flag:
+            itr_started = time.time()
+            begindate = dt.date(2018, 3, 21)
+            print("downloading begin_date:",begindate)
+            scrape(begindate)
+            begindate += dt.timedelta(days=10) #advance 10 days in history
+            flag = False
+            print("iter finished after:",int(time.time() - itr_started),"seconds")
+        elif elapsed % INTERVAL == 1:
+            flag = True
+
+
+def main():
+    infinite(10) #run for X time, in days
 
 if __name__ == "__main__":
     main()
