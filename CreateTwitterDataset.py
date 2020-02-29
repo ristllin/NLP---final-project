@@ -46,12 +46,10 @@ class DataSetCreator:
         runs throgh saved tweets in raw field and processes them to export format, saves them in data set field
         :return:
         """
-        if self.DEBUG: print("preprocDataSet() Unsupported")
+        if self.DEBUG: print("preprocDataSet() called")
         for tweet in self.raw_data:
             if tweet[1] != "":
                 self.data_set[tweet[0]] = [emoji for emoji in tweet[1]]
-            elif self.DEBUG:
-                print("dropping:",tweet[0])
 
     def export(self,PATH):
         """
@@ -59,9 +57,9 @@ class DataSetCreator:
         :param PATH:
         :return:
         """
-        print(self.data_set)
         with open(PATH + ".txt", "w", encoding="utf-8") as file:  # save to temp folder
             file.write(json.dumps(self.data_set))
+        print("data_Set at: ",len(self.data_set),"indices")
 
     @staticmethod
     def extractEmojies(tweet):
@@ -91,33 +89,41 @@ def example():
 def scrape(begindate):
     # create a tweets downloader
     # download preproc and export
-    hashtags = loadHashTags("hashtags.csv")
+    hashtags = loadHashTags("hashtags-test.csv")
     print("Loaded ", len(hashtags), "hashtags.")
-    my_creator = DataSetCreator(DEBUG=True)
+    my_creator = DataSetCreator(DEBUG=False)
     my_creator.load_tweets("./results")
     my_creator.scrape_twitter(hashtags,date=begindate)  # scrapes hashtags into raw data
     my_creator.preprocDataSet()
     my_creator.export("./results")
 
 def infinite(duration):
-    INTERVAL = 300 #3660 = 1:01 hours  #<<<<>>>>> DEBUG
+    INTERVAL = 3660 #3660 = 1:01 hours  #<<<<>>>>> DEBUG
     duration = duration * 24 * 60 * 60 #in seconds
     time_left = duration
+    begindate = dt.date(2018, 3, 21)
     start = time.time()
-    flag = True
+    flag,printed = True,False
     while time_left > 0:
         elapsed = int(time.time() - start)
         time_left = duration - elapsed
         if elapsed % INTERVAL == 0 and flag:
+            print("\n--------------")
             itr_started = time.time()
-            begindate = dt.date(2018, 3, 21)
             print("downloading begin_date:",begindate)
             scrape(begindate)
             begindate += dt.timedelta(days=10) #advance 10 days in history
             flag = False
             print("iter finished after:",int(time.time() - itr_started),"seconds")
+            print("\n-------------")
         elif elapsed % INTERVAL == 1:
             flag = True
+        if elapsed % 2 == 0 and printed == False:
+            elapsed = int(time.time() - start)
+            print("\rtime left for next iter:",int(INTERVAL - elapsed % INTERVAL),"seconds",end="")
+            printed = True
+        elif elapsed % 2 == 1:
+            printed = False
 
 
 def main():
