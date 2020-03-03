@@ -1,5 +1,44 @@
 import re
 import csv
+import pandas as pd
+
+def merge_csvs(csv1, csv2):
+    """
+    Merge two Tweets Emojies data base into one csv file.
+    :param: csv1 - first tweet to emojies db
+            csv2 - sceond tweet to emojies db
+    :return: None
+    """
+    csv1_data = pd.read_csv(csv1)
+    csv2_data = pd.read_csv(csv2)
+    csv1_label_fields = list(csv1_data.columns.values)
+    csv1_label_fields.pop(0)
+    csv2_label_fields = list(csv2_data.columns.values)
+    csv2_label_fields.pop(0)
+    labels = set(csv1_label_fields)
+    labels.update(csv2_label_fields)
+    file = open('merged_tweets_emojies.csv', 'w')
+    with file:
+        fields = ['tweet'] + list(labels)
+        writer = csv.DictWriter(file, fieldnames=fields)
+        writer.writeheader()
+        for tweet in csv1_data['tweet']:
+            line = {'tweet': tweet}
+            for label in labels:
+                if label in csv1_label_fields:
+                    line[label] = csv1_data[label]
+                else:
+                    line[label] = 0
+            writer.writerow(line)
+        for tweet in csv2_data['tweet']:
+            line = {'tweet': tweet}
+            for label in labels:
+                if label in csv2_label_fields:
+                    line[label] = csv2_data[label]
+                else:
+                    line[label] = 0
+            writer.writerow(line)
+    file.close()
 
 def Run():
     """
