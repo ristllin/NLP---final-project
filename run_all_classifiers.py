@@ -1,12 +1,15 @@
+#Libraries
 import sys, os
 import pandas as pd
 from sklearn.model_selection import train_test_split
+
+#Modules
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 from CNN import run_cnn
 from RNN import run_rnn
 from SVM import run_svm
-from K-nearest_Neighbors import run_kneighbors
+from K-nearest_Neighbors import run_neighbors
 
 def run_classifiers():
     csv = pd.read_csv('tweets_emojies.csv')
@@ -24,7 +27,7 @@ def run_classifiers():
     run_cnn(X_train, X_test, y_train, y_test)
     run_rnn(X_train, X_test, y_train, y_test)
     run_svm(X_train, X_test, y_train, y_test)
-    run_kneighbors(X_train, X_test, y_train, y_test)
+    run_neighbors(X_train, X_test, y_train, y_test)
 
 if __name__ == '__main__':
     run_classifiers()

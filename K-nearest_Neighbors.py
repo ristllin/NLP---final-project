@@ -5,7 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 
 
-def run_kneighbors(X_train, X_test, y_train, y_test):
+def run_neighbors(X_train, X_test, y_train, y_test):
     """
     Create K Neighbors model using X_train y_train data and evaluate the model
     using X_test and y_test

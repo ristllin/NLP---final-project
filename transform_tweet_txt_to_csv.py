@@ -6,7 +6,7 @@ def merge_csvs(csv1, csv2):
     """
     Merge two Tweets Emojies data base into one csv file.
     :param: csv1 - first tweet to emojies db
-            csv2 - sceond tweet to emojies db
+            csv2 - second tweet to emojies db
     :return: None
     """
     csv1_data = pd.read_csv(csv1)
