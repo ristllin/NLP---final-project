@@ -11,6 +11,7 @@ from RNN import run_rnn
 from SVM import run_svm
 from k_nearest_neighbor import run_kneighbors
 
+
 def run_classifiers():
     csv = pd.read_csv('tweets_emojies.csv')
     csv = csv.dropna()
