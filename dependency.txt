@@ -1,3 +1,11 @@
 In order to run run_all_classifers.py CNN.py RNN.py you need to download and extract
 1.https://www.kaggle.com/watts2/glove6b50dtxt/download
 2.https://www.kaggle.com/terenceliu4444/glove6b100dtxt/download
+
+Modules:
+pandas
+sklearn
+keras
+numpy
+emoji
+twitterscraper

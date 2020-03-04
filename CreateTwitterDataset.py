@@ -98,7 +98,7 @@ def scrape(begindate):
     my_creator.export("./results")
 
 def infinite(duration):
-    INTERVAL = 3660 #3660 = 1:01 hours  #<<<<>>>>> DEBUG
+    INTERVAL = 50 #3660 = 1:01 hours  #<<<<>>>>> DEBUG
     duration = duration * 24 * 60 * 60 #in seconds
     time_left = duration
     begindate = dt.date(2018, 3, 21)

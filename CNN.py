@@ -122,13 +122,13 @@ def run_cnn(X_train, X_test, y_train, y_test):
     :return: None
     """
     X_train_Glove,X_test_Glove, word_index,embeddings_index = loadData_Tokenizer(X_train,X_test)
-    model_CNN = Build_Model_CNN_Text(word_index,embeddings_index, 20)
+    model_CNN = Build_Model_CNN_Text(word_index,embeddings_index, 100)
     model_CNN.summary()
     model_CNN.fit(X_train_Glove, y_train,
                               validation_data=(X_test_Glove, y_test),
-                              epochs=5,
+                              epochs=20,
                               batch_size=128,
-                              verbose=2)
+                               verbose=2)
     predicted = model_CNN.predict(X_test_Glove)
     predicted = np.argmax(predicted, axis=1)
     print(metrics.classification_report(y_test, predicted))
