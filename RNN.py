@@ -85,7 +85,7 @@ def Build_Model_RNN_Text(word_index, embeddings_index, nclasses,  MAX_SEQUENCE_L
     return model
 
 
-def run_rnn(X_train, X_test, y_train, y_test):
+def run_rnn(X_train, X_test, y_train, y_test, num_labels):
     """
     Create RNN model using X_train y_train data and evaluate the model
     using X_test and y_test
@@ -96,7 +96,7 @@ def run_rnn(X_train, X_test, y_train, y_test):
     :return: None
     """
     X_train_Glove,X_test_Glove, word_index,embeddings_index = loadData_Tokenizer(X_train,X_test)
-    model_RNN = Build_Model_RNN_Text(word_index,embeddings_index, 100)
+    model_RNN = Build_Model_RNN_Text(word_index,embeddings_index, num_labels)
     model_RNN.summary()
     model_RNN.fit(X_train_Glove, y_train,
                               validation_data=(X_test_Glove, y_test),
