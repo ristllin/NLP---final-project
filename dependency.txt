@@ -9,3 +9,4 @@ keras
 numpy
 emoji
 twitterscraper
+tensorflow (windows - runs only on python 3.6 - no support for 3.7 or 3.8)
