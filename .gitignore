@@ -2,3 +2,7 @@ glove.6B.50d.txt
 glove.6B.100d.txt
 venv/*
 venv
+tweets_emojies.csv
+.idea/*
+.idea
+idea/

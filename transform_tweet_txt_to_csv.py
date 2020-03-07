@@ -1,6 +1,7 @@
 import re
 import csv
 import pandas as pd
+import json
 
 def merge_csvs(csv1, csv2):
     """
@@ -39,6 +40,32 @@ def merge_csvs(csv1, csv2):
                     line[label] = 0
             writer.writerow(line)
     file.close()
+
+def dictToCSV(PATH,EXPORTPATH):
+    with open(PATH, 'r',encoding="utf-8") as content_file:
+        data_raw = content_file.read()
+        data = json.loads(data_raw)
+    print(">>>Convertion Started")
+    # count = 1
+    emojies_in_data = set()
+    for val in data.values(): emojies_in_data.add(val)
+    fields = ['tweet'] + list(emojies_in_data)
+    print("loaded:",len(fields),"fields")
+    with open(EXPORTPATH, 'w',encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=fields)
+        writer.writeheader()
+        for tweet,emoji in data.items():
+            # if count % 10 == 0:
+                # print("\rConverted: ",count,"/",len(data),end="")
+            # count += 1
+            line = {'tweet': tweet}
+            for label in fields:
+                if label == emoji:
+                    line[label] = 1
+                else:
+                    line[label] = 0
+            writer.writerow(line)
+    print("\n>>>Finished successfully")
 
 def Run():
     """
@@ -79,5 +106,4 @@ def Run():
 
 ##############################################
 if __name__ == '__main__':
-    Run()
-
+    dictToCSV('results.txt','tweets_emojies.csv')

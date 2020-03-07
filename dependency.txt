@@ -5,8 +5,8 @@ In order to run run_all_classifers.py CNN.py RNN.py you need to download and ext
 Modules:
 pandas
 sklearn
-keras
 numpy
 emoji
 twitterscraper
 tensorflow (windows - runs only on python 3.6 - no support for 3.7 or 3.8)
+keras
