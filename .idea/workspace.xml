@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c809e48-890a-4fc8-9bbe-b4a56b4b623c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analize_Results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConvertToSingle.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CreateTwitterDataset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RNN.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SVM.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hashtags.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/k_nearest_neighbor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results_6_3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_all_classifiers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transform_tweet_txt_to_csv.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transformers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dependency.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hashtags-test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/k_nearest_neighbor.py" beforeDir="false" afterPath="$PROJECT_DIR$/k_nearest_neighbor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +36,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.run_all_classifiers">
-    <configuration name="ConvertToSingle" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.Analize_Results">
+    <configuration name="Analize_Results" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLP - sum project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -59,28 +49,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvertToSingle.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="CreateTwitterDataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="NLP - sum project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CreateTwitterDataset.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Analize_Results.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -110,6 +79,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NLP - sum project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../data-gen" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../data-gen/Main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="heatmap_annotation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NLP - sum project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/heatmap_annotation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="run_all_classifiers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLP - sum project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -131,34 +142,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="transform_tweet_txt_to_csv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="NLP - sum project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/transform_tweet_txt_to_csv.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run_all_classifiers" />
-        <item itemvalue="Python.transform_tweet_txt_to_csv" />
-        <item itemvalue="Python.ConvertToSingle" />
+        <item itemvalue="Python.Analize_Results" />
+        <item itemvalue="Python.heatmap_annotation" />
+        <item itemvalue="Python.Main" />
         <item itemvalue="Python.K-nearest_Neighbors" />
-        <item itemvalue="Python.CreateTwitterDataset" />
+        <item itemvalue="Python.run_all_classifiers" />
       </list>
     </recent_temporary>
   </component>
@@ -197,33 +187,57 @@
       <screen x="-361" y="-1440" width="2560" height="1400" />
     </state>
     <state x="698" y="-986" key="FileChooserDialogImpl/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1583580497438" />
-    <state width="2539" height="465" key="GridCell.Tab.0.bottom" timestamp="1583587901362">
+    <state width="2539" height="465" key="GridCell.Tab.0.bottom" timestamp="1584196727750">
       <screen x="-361" y="-1440" width="2560" height="1400" />
     </state>
-    <state width="2539" height="465" key="GridCell.Tab.0.bottom/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1583587901362" />
+    <state width="2539" height="465" key="GridCell.Tab.0.bottom/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584196727750" />
     <state width="1259" height="123" key="GridCell.Tab.0.bottom/0.0.1280.680/-361.-1440.2560.1400@0.0.1280.680" timestamp="1582657837513" />
     <state width="1259" height="99" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1582638550394" />
-    <state width="2539" height="465" key="GridCell.Tab.0.center" timestamp="1583587901362">
+    <state width="2539" height="465" key="GridCell.Tab.0.center" timestamp="1584196727750">
       <screen x="-361" y="-1440" width="2560" height="1400" />
     </state>
-    <state width="2539" height="465" key="GridCell.Tab.0.center/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1583587901362" />
+    <state width="2539" height="465" key="GridCell.Tab.0.center/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584196727750" />
     <state width="1259" height="123" key="GridCell.Tab.0.center/0.0.1280.680/-361.-1440.2560.1400@0.0.1280.680" timestamp="1582657837512" />
     <state width="1259" height="99" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1582638550394" />
-    <state width="2539" height="465" key="GridCell.Tab.0.left" timestamp="1583587901362">
+    <state width="2539" height="465" key="GridCell.Tab.0.left" timestamp="1584196727749">
       <screen x="-361" y="-1440" width="2560" height="1400" />
     </state>
-    <state width="2539" height="465" key="GridCell.Tab.0.left/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1583587901362" />
+    <state width="2539" height="465" key="GridCell.Tab.0.left/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584196727749" />
     <state width="1259" height="123" key="GridCell.Tab.0.left/0.0.1280.680/-361.-1440.2560.1400@0.0.1280.680" timestamp="1582657837512" />
     <state width="1259" height="99" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1582638550394" />
-    <state width="2539" height="465" key="GridCell.Tab.0.right" timestamp="1583587901362">
+    <state width="2539" height="465" key="GridCell.Tab.0.right" timestamp="1584196727750">
       <screen x="-361" y="-1440" width="2560" height="1400" />
     </state>
-    <state width="2539" height="465" key="GridCell.Tab.0.right/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1583587901362" />
+    <state width="2539" height="465" key="GridCell.Tab.0.right/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584196727750" />
     <state width="1259" height="123" key="GridCell.Tab.0.right/0.0.1280.680/-361.-1440.2560.1400@0.0.1280.680" timestamp="1582657837512" />
     <state width="1259" height="99" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1582638550394" />
-    <state x="420" y="-1098" key="SettingsEditor" timestamp="1583580932275">
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1584181861129">
       <screen x="-361" y="-1440" width="2560" height="1400" />
     </state>
-    <state x="420" y="-1098" key="SettingsEditor/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1583580932275" />
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584181861129" />
+    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1584181861129">
+      <screen x="-361" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="492" key="GridCell.Tab.1.center/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584181861129" />
+    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1584181861129">
+      <screen x="-361" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="492" key="GridCell.Tab.1.left/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584181861129" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1584181861129">
+      <screen x="-361" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="492" key="GridCell.Tab.1.right/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584181861129" />
+    <state x="420" y="-1098" key="SettingsEditor" timestamp="1584178778084">
+      <screen x="-361" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="420" y="-1098" key="SettingsEditor/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584178778084" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1584187164686">
+      <screen x="-361" y="-1440" width="2560" height="1400" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584187164686" />
+    <state x="699" y="-1071" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1584179194512">
+      <screen x="-361" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="699" y="-1071" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584179194512" />
   </component>
 </project>
