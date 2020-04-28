@@ -92,20 +92,27 @@ def labelTweets(data,algo_suc_rates,EXPORT_PATH,CSV_DELIMITER=","):
     labeled_data = []
     for tweet in data:
         dominant_alg = maxAlgo(algo_suc_rates,tweet[1])
-        labeled_data.append(str(algo_suc_rates[dominant_alg][0])+CSV_DELIMITER+str(tweet[0])+"\n")
-    with open(EXPORT_PATH,"w") as export_file:
-        export_file.writelines(labeled_data)
+        labeled_data.append([algo_suc_rates[dominant_alg][0],tweet[0]])
+    with open(EXPORT_PATH,"w",newline='') as export_file:
+        csv_writer = csv.writer(export_file)
+        csv_writer.writerows(labeled_data)
+
+def labelForAWS(IMPORTPATH,EXPORTPATH):
+    print(">>> Loading Data")
+    data,alg_names = loadData(IMPORTPATH)
+    print(">>> Calculating success rates")
+    algo_suc_rates = analyzeSuccessRate(data,alg_names)
+    print("Original Success rates: ",algo_suc_rates)
+    print(">>> Adding default to blanks")
+    data = addDefault(data,algo_suc_rates)
+    algo_suc_rates = analyzeSuccessRate(data, alg_names) #unnecessary
+    print("Processed Success rates: ", algo_suc_rates)
+    print(">>> labeling tweets by most dominant solver")
+    labelTweets(data,algo_suc_rates,EXPORTPATH)
 
 def main():
     # AnalizeResults("./Simulated_Data.csv")
-    print(">>> Loading Data")
-    data,alg_names = loadData("./Simulated_Data1000.csv")
-    print(">>> Calculating success rates")
-    algo_suc_rates = analyzeSuccessRate(data,alg_names)
-    print(">>> Adding default to blanks")
-    data = addDefault(data,algo_suc_rates)
-    print(">>> labeling tweets by most dominant solver")
-    labelTweets(data,algo_suc_rates,"labeled_results.csv")
+    labelForAWS("./Simulated_Data1000.csv","labeled_results.csv")
 
 if __name__ == "__main__":
     main()

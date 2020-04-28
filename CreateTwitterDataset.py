@@ -97,11 +97,10 @@ def scrape(begindate):
     my_creator.preprocDataSet()
     my_creator.export("./results")
 
-def infinite(duration):
+def infinite(duration,begin_date = dt.date(2018, 3, 21)):
     INTERVAL = 50 #3660 = 1:01 hours  #<<<<>>>>> DEBUG
     duration = duration * 24 * 60 * 60 #in seconds
     time_left = duration
-    begindate = dt.date(2018, 3, 21)
     start = time.time()
     flag,printed = True,False
     while time_left > 0:
@@ -110,9 +109,9 @@ def infinite(duration):
         if elapsed % INTERVAL == 0 and flag:
             print("\n--------------")
             itr_started = time.time()
-            print("downloading begin_date:",begindate)
-            scrape(begindate)
-            begindate += dt.timedelta(days=10) #advance 10 days in history
+            print("downloading begin_date:",begin_date)
+            scrape(begin_date)
+            begin_date += dt.timedelta(days=10) #advance 10 days in history
             flag = False
             print("iter finished after:",int(time.time() - itr_started),"seconds")
             print("\n-------------")
@@ -127,7 +126,8 @@ def infinite(duration):
 
 
 def main():
-    infinite(10) #run for X time, in days
+    begin_date = dt.date(2018, 3, 21)
+    infinite(10,begin_date) #run for X time, in days
 
 if __name__ == "__main__":
     main()

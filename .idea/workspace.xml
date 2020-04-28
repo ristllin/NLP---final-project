@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c809e48-890a-4fc8-9bbe-b4a56b4b623c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Analize_Results.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dependency.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hashtags-test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/k_nearest_neighbor.py" beforeDir="false" afterPath="$PROJECT_DIR$/k_nearest_neighbor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analize_Results.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analize_Results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CreateTwitterDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/CreateTwitterDataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hashtags.csv" beforeDir="false" afterPath="$PROJECT_DIR$/hashtags.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labeled_results.csv" beforeDir="false" afterPath="$PROJECT_DIR$/labeled_results.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +36,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Analize_Results">
+  <component name="RunManager" selected="Python.CreateTwitterDataset">
     <configuration name="Analize_Results" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLP - sum project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -50,6 +50,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Analize_Results.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CreateTwitterDataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NLP - sum project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CreateTwitterDataset.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,34 +142,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run_all_classifiers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="NLP - sum project" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_all_classifiers.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.CreateTwitterDataset" />
         <item itemvalue="Python.Analize_Results" />
         <item itemvalue="Python.heatmap_annotation" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.K-nearest_Neighbors" />
-        <item itemvalue="Python.run_all_classifiers" />
       </list>
     </recent_temporary>
   </component>
@@ -183,50 +183,54 @@
       <screen x="-361" y="-1440" width="2560" height="1400" />
     </state>
     <state x="373" y="-1085" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1582996406873" />
-    <state x="698" y="-986" key="FileChooserDialogImpl" timestamp="1583580497438">
+    <state x="698" y="-986" key="FileChooserDialogImpl" timestamp="1586446304732">
       <screen x="-361" y="-1440" width="2560" height="1400" />
     </state>
-    <state x="698" y="-986" key="FileChooserDialogImpl/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1583580497438" />
-    <state width="2539" height="465" key="GridCell.Tab.0.bottom" timestamp="1584196727750">
-      <screen x="-361" y="-1440" width="2560" height="1400" />
+    <state x="698" y="-986" key="FileChooserDialogImpl/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1586446304732" />
+    <state width="1259" height="433" key="GridCell.Tab.0.bottom" timestamp="1588064769977">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="2539" height="465" key="GridCell.Tab.0.bottom/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584196727750" />
+    <state width="2539" height="465" key="GridCell.Tab.0.bottom/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584198555424" />
     <state width="1259" height="123" key="GridCell.Tab.0.bottom/0.0.1280.680/-361.-1440.2560.1400@0.0.1280.680" timestamp="1582657837513" />
-    <state width="1259" height="99" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1582638550394" />
-    <state width="2539" height="465" key="GridCell.Tab.0.center" timestamp="1584196727750">
-      <screen x="-361" y="-1440" width="2560" height="1400" />
+    <state width="1259" height="433" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1588064769977" />
+    <state width="1259" height="433" key="GridCell.Tab.0.center" timestamp="1588064769974">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="2539" height="465" key="GridCell.Tab.0.center/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584196727750" />
+    <state width="2539" height="465" key="GridCell.Tab.0.center/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584198555424" />
     <state width="1259" height="123" key="GridCell.Tab.0.center/0.0.1280.680/-361.-1440.2560.1400@0.0.1280.680" timestamp="1582657837512" />
-    <state width="1259" height="99" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1582638550394" />
-    <state width="2539" height="465" key="GridCell.Tab.0.left" timestamp="1584196727749">
-      <screen x="-361" y="-1440" width="2560" height="1400" />
+    <state width="1259" height="433" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1588064769974" />
+    <state width="1259" height="433" key="GridCell.Tab.0.left" timestamp="1588064769974">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="2539" height="465" key="GridCell.Tab.0.left/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584196727749" />
+    <state width="2539" height="465" key="GridCell.Tab.0.left/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584198555424" />
     <state width="1259" height="123" key="GridCell.Tab.0.left/0.0.1280.680/-361.-1440.2560.1400@0.0.1280.680" timestamp="1582657837512" />
-    <state width="1259" height="99" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1582638550394" />
-    <state width="2539" height="465" key="GridCell.Tab.0.right" timestamp="1584196727750">
-      <screen x="-361" y="-1440" width="2560" height="1400" />
+    <state width="1259" height="433" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1588064769974" />
+    <state width="1259" height="433" key="GridCell.Tab.0.right" timestamp="1588064769977">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="2539" height="465" key="GridCell.Tab.0.right/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584196727750" />
+    <state width="2539" height="465" key="GridCell.Tab.0.right/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584198555424" />
     <state width="1259" height="123" key="GridCell.Tab.0.right/0.0.1280.680/-361.-1440.2560.1400@0.0.1280.680" timestamp="1582657837512" />
-    <state width="1259" height="99" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1582638550394" />
-    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1584181861129">
-      <screen x="-361" y="-1440" width="2560" height="1400" />
+    <state width="1259" height="433" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1588064769977" />
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1584257171668">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="2539" height="492" key="GridCell.Tab.1.bottom/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584181861129" />
-    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1584181861129">
-      <screen x="-361" y="-1440" width="2560" height="1400" />
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584257171668" />
+    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1584257171668">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="2539" height="492" key="GridCell.Tab.1.center/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584181861129" />
-    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1584181861129">
-      <screen x="-361" y="-1440" width="2560" height="1400" />
+    <state width="2539" height="492" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1584257171668" />
+    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1584257171668">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="2539" height="492" key="GridCell.Tab.1.left/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584181861129" />
-    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1584181861129">
-      <screen x="-361" y="-1440" width="2560" height="1400" />
+    <state width="2539" height="492" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1584257171668" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1584257171668">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="2539" height="492" key="GridCell.Tab.1.right/0.0.1280.680/-361.-1440.2560.1400@-361.-1440.2560.1400" timestamp="1584181861129" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1584257171668" />
     <state x="420" y="-1098" key="SettingsEditor" timestamp="1584178778084">
       <screen x="-361" y="-1440" width="2560" height="1400" />
     </state>
