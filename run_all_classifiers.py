@@ -2,6 +2,10 @@
 import sys, os
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+import csv
+import random
+import string
 
 #Modules
 file_dir = os.path.dirname(__file__)
@@ -10,39 +14,39 @@ from CNN import run_cnn
 from RNN import run_rnn
 from SVM import run_svm
 from k_nearest_neighbor import run_kneighbors
+from Bert import run_bert
+import os
 
+bert_folder = os.path.join("Bert-Multi-Label-Text-Classification-master","pybert","dataset")
 
 def run_classifiers():
     print("running")
-    csv = pd.read_csv('tweets_emojies.csv')
-    csv = csv.dropna()
-    csv_label_fields = list(csv.columns.values)
-    csv_label_fields.pop(0)
-    tweets = csv['tweet']
-    labels = []
+    input_csv = pd.read_csv('tweets_emojies.csv')
+    input_csv = input_csv.dropna()
+    tweets = input_csv['tweet']
     print("loading DB")
-    for i in range(len(tweets)):
-        number = 0
-        for j, label in enumerate(csv_label_fields):
-            print(j,label)
-            label_column = list(csv[label])
-            number += (2 ^ j) * label_column[i]
-        labels.append(number)
-        print(i)
-        # if i % 100 == 0: print("tweet:",i)
-    map_label_to_index_label = {l:i for i,l in enumerate(set(labels))}
-    index_labels = [map_label_to_index_label[l] for l in labels]
-    num_lables = len(set(index_labels))
+    labels = LabelEncoder().fit_transform(input_csv['label'])
+    num_labels = len(list(set(labels)))
+    label_list = [str(num) for num in list(set(labels))]
     print("splitting")
-    X_train, X_test, y_train, y_test = train_test_split(tweets, index_labels, test_size=0.33, random_state=42)
-    print("Running CNN")
-    run_cnn(X_train, X_test, y_train, y_test, num_lables)
-    print("Running RNN")
-    run_rnn(X_train, X_test, y_train, y_test, num_lables)
-    print("Running SVM")
-    run_svm(X_train, X_test, y_train, y_test)
-    print("Running K-neighbours")
-    run_kneighbors(X_train, X_test, y_train, y_test)
+    X_train, X_test, y_train, y_test = train_test_split(tweets, labels, test_size=0.33, random_state=42)
+    with open('classifiers_results.csv', mode='w',  encoding="utf-8") as cls_res_file:
+        writer = csv.DictWriter(cls_res_file, fieldnames=list(['Tweet', 'Bert', 'CNN', 'RNN', 'SVM', 'KNeighbors']))
+        writer.writeheader()
+        print("Running Bert")
+        bert_test_res = run_bert(X_train, X_test, y_train, y_test, label_list)
+        print("Running CNN")
+        cnn_test_res = run_cnn(X_train, X_test, y_train, y_test, num_labels)
+        print("Running RNN")
+        rnn_test_res = run_rnn(X_train, X_test, y_train, y_test, num_labels)
+        print("Running SVM")
+        svm_test_res = run_svm(X_train, X_test, y_train, y_test)
+        print("Running K-neighbours")
+        kneighbors_test_res = run_kneighbors(X_train, X_test, y_train, y_test)
+        for tweet, bert_res, cnn_res, rnn_res, svm_res, kneighbors_res in zip(X_test, bert_test_res, cnn_test_res, rnn_test_res, svm_test_res, kneighbors_test_res):
+            writer.writerow({'Tweet':tweet, 'Bert':bert_res ,'CNN':cnn_res, 'RNN':rnn_res, 'SVM':svm_res, 'KNeighbors':kneighbors_res})
+
+
 
 if __name__ == '__main__':
     run_classifiers()
