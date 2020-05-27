@@ -18,8 +18,8 @@ def merge_csvs(csv1, csv2):
     csv2_label_fields.pop(0)
     labels = set(csv1_label_fields)
     labels.update(csv2_label_fields)
-    file = open('merged_tweets_emojies.csv', 'w')
-    with file:
+    count = 0
+    with open('merged_tweets_emojies.csv', 'w',encoding="utf-8") as file:
         fields = ['tweet'] + list(labels)
         writer = csv.DictWriter(file, fieldnames=fields)
         writer.writeheader()
@@ -31,6 +31,9 @@ def merge_csvs(csv1, csv2):
                 else:
                     line[label] = 0
             writer.writerow(line)
+            if count % 100 == 0:
+                print("Converted: ", count, "/", len(csv1_data['tweet']))
+            count += 1
         for tweet in csv2_data['tweet']:
             line = {'tweet': tweet}
             for label in labels:
@@ -39,33 +42,59 @@ def merge_csvs(csv1, csv2):
                 else:
                     line[label] = 0
             writer.writerow(line)
-    file.close()
+            if count % 100 == 0:
+                print("Converted: ", count, "/", len(csv2_data['tweet']))
+            count += 1
+
+def removeEmojies(tweet):
+    return re.sub('<<<.*?>>>', '', tweet)
 
 def dictToCSV(PATH,EXPORTPATH):
     with open(PATH, 'r',encoding="utf-8") as content_file:
         data_raw = content_file.read()
         data = json.loads(data_raw)
     print(">>>Convertion Started")
-    # count = 1
+    count = 1
+    formated_data = {}
     emojies_in_data = set()
-    for val in data.values(): emojies_in_data.add(val)
+    if type(list(data.items())[0][1]) == list:
+        for key,val in data.items():
+            key = removeEmojies(key)
+            stripped_key = strip_non_alnum(key)
+            formated_data[stripped_key] = val[0]
+            emojies_in_data.add(val[0])
+    elif type(list(data.items())[0][1]) == str:
+        for key,val in data.items():
+            key = removeEmojies(key)
+            stripped_key = strip_non_alnum(key)
+            if type(val) == list:
+                val = val[0]
+            formated_data[stripped_key] = val
+            emojies_in_data.add(val)
+    else:
+        print("unknown data structure: val of type:", type(list(data.items())[0][1]))
     fields = ['tweet'] + list(emojies_in_data)
-    print("loaded:",len(fields),"fields")
+    print(fields) #debug
     with open(EXPORTPATH, 'w',encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=fields)
         writer.writeheader()
-        for tweet,emoji in data.items():
-            # if count % 10 == 0:
-                # print("\rConverted: ",count,"/",len(data),end="")
-            # count += 1
+        for tweet,emoji in formated_data.items():
+            if count % 1000 == 0:
+                print("Converted: ",count,"/",len(data))
+            count += 1
             line = {'tweet': tweet}
             for label in fields:
-                if label == emoji:
-                    line[label] = 1
-                else:
-                    line[label] = 0
+                if label != "tweet":
+                    if label == emoji:
+                        line[label] = 1
+                    else:
+                        line[label] = 0
             writer.writerow(line)
     print("\n>>>Finished successfully")
+
+def strip_non_alnum(my_string):
+    my_string = re.sub('[\W_]+', ' ', my_string)
+    return my_string
 
 def Run():
     """
@@ -102,8 +131,7 @@ def Run():
                 writer.writerow(line)
         file.close()
 
-
-
 ##############################################
 if __name__ == '__main__':
-    dictToCSV('results.txt','tweets_emojies.csv')
+    dictToCSV('united_results.txt','united_results.csv')
+    # merge_csvs('tweets_emojies1.csv', 'tweets_emojies2.csv')
