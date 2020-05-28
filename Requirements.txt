@@ -1,3 +1,5 @@
 1. In order to run run_all_classifiers.py and Bert, You need to download 
 https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip
 into src_bert. since its to heavy I cannot upload it to github.
+2. download glove.6B.50d.txt from https://www.kaggle.com/watts2/glove6b50dtxt
+3. download glove.6B.100d.txt from https://www.kaggle.com/terenceliu4444/glove6b100dtxt
