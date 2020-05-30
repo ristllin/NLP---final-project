@@ -132,3 +132,4 @@ def run_cnn(X_train, X_test, y_train, y_test, num_labels=20):
     predicted = model_CNN.predict(X_test_Glove)
     predicted = np.argmax(predicted, axis=1)
     print(metrics.classification_report(y_test, predicted))
+    return predicted == y_test

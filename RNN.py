@@ -105,3 +105,4 @@ def run_rnn(X_train, X_test, y_train, y_test, num_labels):
                               verbose=2)
     predicted = model_RNN.predict_classes(X_test_Glove)
     print(metrics.classification_report(y_test, predicted))
+    return predicted == y_test

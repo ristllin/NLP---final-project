@@ -22,3 +22,4 @@ def run_svm(X_train, X_test, y_train, y_test):
     text_clf.fit(X_train, y_train)
     predicted = text_clf.predict(X_test)
     print(metrics.classification_report(y_test, predicted))
+    return predicted == y_test

@@ -31,7 +31,7 @@ def run_classifiers():
     print("splitting")
     X_train, X_test, y_train, y_test = train_test_split(tweets, labels, test_size=0.33, random_state=42)
     with open('classifiers_results.csv', mode='w',  encoding="utf-8") as cls_res_file:
-        writer = csv.DictWriter(cls_res_file, fieldnames=list(['Tweet', 'Bert', 'CNN', 'RNN', 'SVM', 'KNeighbors']))
+        writer = csv.DictWriter(cls_res_file, fieldnames=list(['Tweet', 'Bert', 'CNN', 'SVM', 'KNeighbors']))
         writer.writeheader()
         print("Running Bert")
         bert_test_res = run_bert(X_train, X_test, y_train, y_test, label_list)
@@ -43,8 +43,8 @@ def run_classifiers():
         svm_test_res = run_svm(X_train, X_test, y_train, y_test)
         print("Running K-neighbours")
         kneighbors_test_res = run_kneighbors(X_train, X_test, y_train, y_test)
-        for tweet, bert_res, cnn_res, rnn_res, svm_res, kneighbors_res in zip(X_test, bert_test_res, cnn_test_res, rnn_test_res, svm_test_res, kneighbors_test_res):
-            writer.writerow({'Tweet':tweet, 'Bert':bert_res ,'CNN':cnn_res, 'RNN':rnn_res, 'SVM':svm_res, 'KNeighbors':kneighbors_res})
+        for tweet, bert_res, cnn_res, svm_res, kneighbors_res in zip(X_test, bert_test_res, cnn_test_res, svm_test_res, kneighbors_test_res):
+            writer.writerow({'Tweet':tweet, 'Bert':bert_res ,'CNN':cnn_res, 'SVM':svm_res, 'KNeighbors':kneighbors_res})
 
 
 

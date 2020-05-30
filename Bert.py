@@ -191,4 +191,4 @@ def run_bert(x_train, x_test, y_train, y_test, label_list):
 
     print("Accuracy of BERT is:", accuracy_score(y_test, preds))
     print(classification_report(y_test, preds))
-    return y_test==preds
+    return y_test == preds
